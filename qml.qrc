@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>deviceTypes/device1splashLoader.qml</file>
+        <file>deviceTypes/device2splashLoader.qml</file>
+        <file>deviceTypes/device3splashLoader.qml</file>
+        <file>splashLoader.qml</file>
+        <file>deviceTypes/device1HomeScreen.qml</file>
+        <file>deviceTypes/device3HomeScreen.qml</file>
+        <file>deviceTypes/device2HomeScreen.qml</file>
+        <file>resources/LoaderIcon.png</file>
+        <file>CallerModule/dialpad.qml</file>
+        <file>CallerModule/CallerModule.qml</file>
+        <file>TimeModule/TimeWidget.qml</file>
+        <file>WeatherModule/WeatherWidget.qml</file>
+        <file>ContactList/ContactWidget.qml</file>
+        <file>components/DialButton.qml</file>
+        <file>resources/phoneRing.png</file>
+        <file>resources/hangup.webp</file>
+        <file>components/MessageLabel.qml</file>
+        <file>resources/settings.ini</file>
+        <file>resources/config.json</file>
+    </qresource>
+</RCC>
