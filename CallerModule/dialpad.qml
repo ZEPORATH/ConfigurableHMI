@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import "../components"
+import com.crossware.callerWidget 1.0 as QmlHCallerSingleton
 Item {
     width: childrenRect.width
     height: childrenRect.height
@@ -35,9 +36,9 @@ Item {
         columns: 3
         spacing: 5
 
-        DialButton { buttonText: "1"; onClicked: { dialString += "1";} }
-        DialButton { buttonText: "2"; onClicked: { dialString += "2";} }
-        DialButton { buttonText: "3"; onClicked: { dialString += "3";} }
+        DialButton { buttonText: "1"; onClicked: { dialString += "1"; QmlHCallerSingleton.QmlHCaller.mouseClicked; QmlHCallerSingleton.QmlHCaller.setNumPressed(1);} }
+        DialButton { buttonText: "2"; onClicked: { dialString += "2"; QmlHCallerSingleton.QmlHCaller.mouseClicked; QmlHCallerSingleton.QmlHCaller.setNumPressed(2);} }
+        DialButton { buttonText: "3"; onClicked: { dialString += "3"; QmlHCallerSingleton.QmlHCaller.mouseClicked; QmlHCallerSingleton.QmlHCaller.setNumPressed(3);} }
         DialButton { buttonText: "4"; onClicked: { dialString += "4";} }
         DialButton { buttonText: "5"; onClicked: { dialString += "5";} }
         DialButton { buttonText: "6"; onClicked: { dialString += "6";} }
