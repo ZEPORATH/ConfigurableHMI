@@ -11,8 +11,10 @@ class CallerCore : public WidgetRegistrable
 {
 public:
     explicit CallerCore(QObject* parent = nullptr);
+//    ~CallerCore() {qDebug() << Q_FUNC_INFO;}
     virtual void reLoadWidget();
     virtual void unLoadWidget();
+signals:
 private slots:
     void onNotifyCore(QString status);
 

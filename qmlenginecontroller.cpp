@@ -65,6 +65,14 @@ void QmlEngineController::showMainScreen()
 void QmlEngineController::handleError(int errCode, QString error)
 {
     qDebug() << Q_FUNC_INFO;
+    if (errCode = -1)
+    {
+        qDebug() << Q_FUNC_INFO << "Regular message: " << error;
+    }
+    else
+    {
+        qDebug() << Q_FUNC_INFO << "Error Occured: " << error;
+    }
 }
 
 void QmlEngineController::showSplashScreen(int type)

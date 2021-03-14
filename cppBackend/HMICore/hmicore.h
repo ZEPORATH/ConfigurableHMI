@@ -20,6 +20,7 @@ signals:
     void addContext(QObject* contextObj);
 public slots:
     void onLoadComplete();
+    void onErrorOccured(int errCode, QString errorString);
     void onLoadPage(QUrl pageUrl, QObject* contextObject=nullptr); //Send pageNavigation to navigation Manager with contextObject in case u want to expose some context
 };
 

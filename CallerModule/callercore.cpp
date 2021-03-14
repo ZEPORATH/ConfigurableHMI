@@ -6,8 +6,9 @@ CallerCore::CallerCore(QObject *parent): WidgetRegistrable(parent)
 
 void CallerCore::reLoadWidget()
 {
-    qmlRegisterSingletonType<QmlHCaller>("com.crossware.callerWidget", 1, 0, "QmlHCaller", getQMLHandlerInstance);
+    qDebug() << Q_FUNC_INFO;
 
+    qmlRegisterSingletonType<QmlHCaller>("com.crossware.callerWidget", 1, 0, "QmlHCaller", getQMLHandlerInstance);
     connect(QmlHCallerSingleton::instance(), &QmlHCaller::notifyCore, this, &CallerCore::onNotifyCore);
 }
 
