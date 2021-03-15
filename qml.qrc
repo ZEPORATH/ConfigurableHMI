@@ -20,5 +20,6 @@
         <file>components/MessageLabel.qml</file>
         <file>resources/settings.ini</file>
         <file>resources/config.json</file>
+        <file>components/LoaderProvider.qml</file>
     </qresource>
 </RCC>

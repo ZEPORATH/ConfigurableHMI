@@ -2,6 +2,8 @@ import QtQuick 2.12
 import "../components"
 import com.crossware.callerWidget 1.0 as QmlHCallerSingleton
 Item {
+    id: dialpad;
+    objectName: "dialpad";
     width: childrenRect.width
     height: childrenRect.height
     property string dialString

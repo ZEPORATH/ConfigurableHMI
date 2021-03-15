@@ -15,11 +15,12 @@ public:
     void setMouseClicked(bool mouseClicked);
 
     Q_INVOKABLE void setNumPressed(int numPressed);
-
+    Q_INVOKABLE void goTo(QString page);
 signals:
     void mouseClicked();
     void numPressed(int num);
     void notifyCore(QString status);
+    void loadPage(QString url, QObject* contextObj);
 public slots:
 private:
     bool m_mouseClicked;

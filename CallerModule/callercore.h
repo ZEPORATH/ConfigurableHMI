@@ -17,7 +17,7 @@ public:
 signals:
 private slots:
     void onNotifyCore(QString status);
-
+    void onLoadPage(QString page, QObject* contex = nullptr);
 private:
     static QObject* getQMLHandlerInstance(QQmlEngine*, QJSEngine*);
 };

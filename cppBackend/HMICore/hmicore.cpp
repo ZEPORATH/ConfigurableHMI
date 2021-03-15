@@ -37,8 +37,9 @@ void HMICore::initialize()
             qDebug() << Q_FUNC_INFO << " Factory doesn't know the type. Unable to create " << widgetName;
         }
     }
+
     QmlNavigationControllerSingelton::instance()->setHomeScreen(homeScreen);
-    emit bootComplete();
+//    emit bootComplete();
 }
 
 void HMICore::onLoadComplete()
@@ -54,6 +55,7 @@ void HMICore::onErrorOccured(int errCode, QString errorString)
 
 void HMICore::onLoadPage(QUrl pageUrl, QObject *contextObject)
 {
+    qDebug() << Q_FUNC_INFO << endl;
     if (contextObject)
     {
         emit addContext(contextObject);

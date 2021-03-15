@@ -19,3 +19,12 @@ void QmlHCaller::setNumPressed(int numPressed)
     emit notifyCore(QString("m good") + Q_FUNC_INFO);
 }
 
+void QmlHCaller::goTo(QString page)
+{
+    qDebug() << Q_FUNC_INFO << endl;
+    if (page == "dialpad")
+    {
+        emit loadPage("qrc:/CallerModule/dialpad.qml", nullptr);
+    }
+}
+

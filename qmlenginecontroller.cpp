@@ -10,6 +10,7 @@ QmlEngineController::QmlEngineController(QObject *parent) : QObject(parent)
     showSplashScreen(settings.deviceType());
     QmlMessageNotifierSingleton::instance()->setProgressMessage("Loading backend logic. Please wait...");
 
+    showSplashScreen(settings.deviceType());
     startHMICore();
 
 }
@@ -17,25 +18,27 @@ QmlEngineController::QmlEngineController(QObject *parent) : QObject(parent)
 void QmlEngineController::startHMICore()
 {
     qDebug() << Q_FUNC_INFO;
+    HMICore* hmiCore =  new HMICore(this); //TODO: Avoid new, try something with smart
+
     //TODO: remove this code, just for testing
     //--start
     m_timer = new QTimer();
     m_timer->setSingleShot(true);
-    m_timer->setInterval(1000);
+    m_timer->setInterval(2500);
     connect(m_timer, &QTimer::timeout, [=](){
         QmlMessageNotifierSingleton::instance()->setProgressMessage("Loading Complete... WELCOME!");
         m_timer->stop();
         m_timer->deleteLater();
+        hmiCore->bootComplete(); // Imitates the background work complete
     });
     m_timer->start();
     //--- end
 
-    QSharedPointer<HMICore> hmiCore = QSharedPointer<HMICore>::create();
-    if (!hmiCore.isNull())
+    if (nullptr != hmiCore)
     {
-        connect(hmiCore.get(), &HMICore::bootComplete, this, &QmlEngineController::showMainScreen);
-        connect(hmiCore.get(), &HMICore::errorOccured, this, &QmlEngineController::handleError);
-        connect(hmiCore.get(), &HMICore::addContext, this, [=](QObject* contextObj){this->m_contextObjects.append(contextObj);});
+        connect(hmiCore, &HMICore::bootComplete, this, &QmlEngineController::showMainScreen);
+        connect(hmiCore, &HMICore::errorOccured, this, &QmlEngineController::handleError);
+        connect(hmiCore, &HMICore::addContext, this, [=](QObject* contextObj){this->m_contextObjects.append(contextObj);});
     }
     else
     {
@@ -65,7 +68,7 @@ void QmlEngineController::showMainScreen()
 void QmlEngineController::handleError(int errCode, QString error)
 {
     qDebug() << Q_FUNC_INFO;
-    if (errCode = -1)
+    if (errCode == -1)
     {
         qDebug() << Q_FUNC_INFO << "Regular message: " << error;
     }
@@ -79,6 +82,8 @@ void QmlEngineController::showSplashScreen(int type)
 {
     QString splashScreen;
     QColor bgColor;
+
+    //TODO: Move this logic somewhere suitable
     switch (type)
     {
     case 1:
@@ -94,6 +99,8 @@ void QmlEngineController::showSplashScreen(int type)
         bgColor = "blue";
         break;
     }
+    // ---end
+
     QmlColorProviderSingleton::instance()->setBgColor(bgColor);
     QmlNavigationControllerSingelton::instance()->setSpalshScreenSource(splashScreen);
 

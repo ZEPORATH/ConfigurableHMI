@@ -1,6 +1,7 @@
 import QtQuick 2.0
-
+import com.crossware.callerWidget 1.0 as QmlHCallerSingleton
 //Make a phone Icon clickable here, clicking on which takes to a dialpad screen.
+
 Item {
     id: callerDisplay;
     objectName: "CallerModule";
@@ -16,17 +17,10 @@ Item {
             color: "white"
         }
 
-        Loader {
-            id:pageLoader;
-            asynchronous: true;
-            anchors.fill: parent;
-            visible: (status == Loader.Ready)
-        }
         MouseArea {
             anchors.fill: parent;
-            onClicked:
-            {
-               pageLoader.source = "qrc:/CallerModule/dialpad.qml";
+            onClicked: {
+                QmlHCallerSingleton.QmlHCaller.goTo("dialpad");
             }
         }
     }

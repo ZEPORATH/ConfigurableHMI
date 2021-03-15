@@ -5,6 +5,11 @@ QmlNavigationController::QmlNavigationController(QObject *parent) : QObject(pare
 
 }
 
+void QmlNavigationController::pageLoaded(QString source)
+{
+
+}
+
 QString QmlNavigationController::spalshScreenSource() const
 {
     return m_spalshScreenSource;
@@ -27,7 +32,12 @@ void QmlNavigationController::setHomeScreen(const QString &homeScreen)
 
 void QmlNavigationController::loadScreen(const QUrl screen)
 {
+    /**
+      Do some storing of previous page sequence so to make back navigation. Take navigation as navObjects of
+      url & context objects.
+      */
     m_currScreen = screen.toString();
+    emit loadScreenSignal(m_currScreen);
 }
 
 QString QmlNavigationController::currScreen() const
