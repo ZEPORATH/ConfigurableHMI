@@ -24,7 +24,7 @@ void QmlEngineController::startHMICore()
     //--start
     m_timer = new QTimer();
     m_timer->setSingleShot(true);
-    m_timer->setInterval(2500);
+    m_timer->setInterval(1000);
     connect(m_timer, &QTimer::timeout, [=](){
         QmlMessageNotifierSingleton::instance()->setProgressMessage("Loading Complete... WELCOME!");
         m_timer->stop();

@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import "../CallerModule"
-import "../TimeModule"
+import "../ContactList"
 import "../WeatherModule"
+import "../TimeModule"
 import "../components"
 Rectangle {
     id: device1HomeScreen;
@@ -17,21 +18,37 @@ Rectangle {
     Component.onCompleted: {
         console.log("Loaded ", objectName);
     }
+    NavBar {
+        id: navBar;
+        anchors.horizontalCenter: parent.horizontalCenter;
+    }
 
-   CallerModule {
+    Column {
+        anchors.top:  navBar.bottom;
+        anchors.fill: parent
 
-   }
+        spacing: 15;
 
-   TimeWidget {
 
-   }
+        CallerModule {
+            anchors.horizontalCenter: parent.horizontalCenter;
+        }
 
-   WeatherWidget {
+        ContactWidget {
+            anchors.horizontalCenter: parent.horizontalCenter;
+        }
 
-   }
+        WeatherWidget {
 
-   LoaderProvider{
-       anchors.fill: parent;
-       currentPage: "device1HomeScreen.qml"
-   }
+        }
+
+        TimeWidget {
+
+        }
+    }
+
+    LoaderProvider{
+        anchors.fill: parent;
+        currentPage: "device1HomeScreen.qml"
+    }
 }

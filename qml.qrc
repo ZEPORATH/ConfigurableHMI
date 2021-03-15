@@ -21,5 +21,13 @@
         <file>resources/settings.ini</file>
         <file>resources/config.json</file>
         <file>components/LoaderProvider.qml</file>
+        <file>resources/weather.png</file>
+        <file>resources/contactList.webp</file>
+        <file>WeatherModule/WeatherDetails.qml</file>
+        <file>ContactList/ContactListView.qml</file>
+        <file>components/NavBar.qml</file>
+        <file>resources/right-arrow.png</file>
+        <file>resources/home.png</file>
+        <file>resources/backward-arrow.png</file>
     </qresource>
 </RCC>
