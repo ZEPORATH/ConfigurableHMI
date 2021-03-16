@@ -7,6 +7,7 @@
 #include "settings.h"
 #include "widgetregistrable.h"
 #include "CallerModule/callercore.h"
+#include "ContactList/contactcore.h"
 
 class HMICore : public QObject
 {

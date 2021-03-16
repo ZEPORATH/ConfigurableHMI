@@ -20,6 +20,10 @@ void HMICore::initialize()
         {
             widgetReg = new CallerCore();
         }
+        else if (widgetName.toLower() == "contactlist")
+        {
+            widgetReg = new ContactCore();
+        }
         //Add extra if else checks for other registrable widgets
 
         //Make necessary connections

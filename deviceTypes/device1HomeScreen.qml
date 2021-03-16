@@ -20,12 +20,22 @@ Rectangle {
     }
     NavBar {
         id: navBar;
-        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.bottom: parent.bottom
+        anchors.rightMargin: 10
+        anchors.leftMargin: 10
+        anchors.bottomMargin: 40
+        anchors.top: parent.top
+        anchors.topMargin: 10
+
     }
 
     Column {
-        anchors.top:  navBar.bottom;
-        anchors.fill: parent
+        id: widgetColumns;
+        anchors.top: navBar.bottom;
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.topMargin: -376
 
         spacing: 15;
 

@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import com.crossware.contactListWidget 1.0 as QmlHContactListSingleton;
 
 Rectangle {
     id: contactWidget;
@@ -24,6 +25,7 @@ Rectangle {
         anchors.fill: parent;
         onClicked: {
             console.log("Caller Contact List");
+            QmlHContactListSingleton.QmlHContactList.goTo("contactList")
         }
     }
 }

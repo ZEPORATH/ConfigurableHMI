@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     CallerModule/callercore.cpp \
     CallerModule/qmlhcaller.cpp \
+    ContactList/contactcore.cpp \
     ContactList/qmlhcontactlist.cpp \
     TimeModule/qmlhtimemodule.cpp \
     WeatherModule/qmlhweathermodule.cpp \
@@ -28,6 +29,7 @@ SOURCES += main.cpp \
 HEADERS += \
     CallerModule/callercore.h \
     CallerModule/qmlhcaller.h \
+    ContactList/contactcore.h \
     ContactList/qmlhcontactlist.h \
     TimeModule/qmlhtimemodule.h \
     WeatherModule/qmlhweathermodule.h \

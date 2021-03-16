@@ -3,10 +3,12 @@ import QtQuick 2.0
 Item {
     property int dims: 40;
     height: dims+10;
-    anchors.left: parent.left;
-    anchors.right: parent.right;
+    width: iconsRow.width;
+
     Row{
+        id: iconsRow;
         anchors.fill: parent;
+        spacing: 12;
         Rectangle {
             id: backIconArea;
             width: dims;
@@ -18,6 +20,7 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
+                onClicked: console.log("backbuttonClicked");
             }
         }
         Rectangle {
@@ -31,6 +34,7 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
+                onClicked: console.log("homeButtonClicked");
             }
         }
         Rectangle {
@@ -44,6 +48,7 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
+                onClicked: console.log("forwardButtonClicked");
             }
         }
     }

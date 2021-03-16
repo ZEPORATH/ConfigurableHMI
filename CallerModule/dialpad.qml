@@ -9,6 +9,8 @@ Item {
     property string dialString
     signal dial(string numberToDial)
     signal hangup
+    x: 80
+    y: 60
 
     Rectangle {
         id: dialNumber
