@@ -88,7 +88,7 @@ void QmlEngineController::showSplashScreen(int type)
     {
     case 1:
         splashScreen = "qrc:/deviceTypes/device1splashLoader.qml";
-        bgColor = "skyblue";
+        bgColor = "white";
         break;
     case 2:
         splashScreen = "qrc:/deviceTypes/device2splashLoader.qml";

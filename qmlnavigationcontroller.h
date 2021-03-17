@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QDebug>
 #include "singletonprovider.h"
 
 class QmlNavigationController : public QObject
@@ -13,6 +14,9 @@ public:
     explicit QmlNavigationController(QObject *parent = nullptr);
 
     Q_INVOKABLE void pageLoaded(QString source);
+    Q_INVOKABLE void goBack();
+    Q_INVOKABLE void goForward();
+    Q_INVOKABLE void goHome();
 
     QString spalshScreenSource() const;
     void setSpalshScreenSource(const QString &spalshScreenSource);
@@ -28,8 +32,10 @@ signals:
     void loadScreenSignal(QString sourcePage);
 public slots:
     void loadScreen(const QUrl screen);
-
 private:
+    void printNavSequence();
+private:
+    QStringList m_navSequence;
     QString m_spalshScreenSource;
     QString m_homeScreen;
     QString m_currScreen;

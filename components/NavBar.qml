@@ -9,6 +9,7 @@ Item {
         id: iconsRow;
         anchors.fill: parent;
         spacing: 12;
+
         Rectangle {
             id: backIconArea;
             width: dims;
@@ -20,9 +21,13 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
-                onClicked: console.log("backbuttonClicked");
+                onClicked: {
+                    QmlNavigation.goBack();
+                    console.log("backbuttonClicked");
+                }
             }
         }
+
         Rectangle {
             id: homeIconArea;
             width: dims;
@@ -34,9 +39,13 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
-                onClicked: console.log("homeButtonClicked");
+                onClicked: {
+                    QmlNavigation.goHome();
+                    console.log("homeButtonClicked");
+                }
             }
         }
+
         Rectangle {
             id: forwardIconArea;
             width: dims;
@@ -48,7 +57,10 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent;
-                onClicked: console.log("forwardButtonClicked");
+                onClicked: {
+                    QmlNavigation.goForward();
+                    console.log("forwardButtonClicked");
+                }
             }
         }
     }
